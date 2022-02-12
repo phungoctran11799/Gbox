@@ -1,0 +1,79 @@
+// css contact
+footer.contact-page--footer {
+    --subHeight: 0px;
+    height: var(--height-footer);
+    &::before {
+        display: none;
+    }
+
+    @include md {
+        --height-footer: 770px;
+        height: var(--height-footer);
+    }
+
+    @include sm {
+        --height-footer: 522px;
+        height: var(--height-footer);
+    }
+
+    @include xs {
+        --height-footer: 500px;
+        height: var(--height-footer);
+    }
+}
+
+.conact-page {
+    .contact {
+        background-image: url(../img/contact-bg.jpg);
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 100px;
+
+        @include xs {
+            height: 500px;
+        }
+        &__logo {
+            @include mid(true)
+        }
+        &__info {
+            @include mid(true);
+            &-left {
+                @include text(var(--body12-fs), pns, var(--body12-lh), $white-cl, uppercase);
+                text-align: right;
+                flex-direction: column;
+                align-items: flex-end;
+                padding: 20px 40px 10px 40px;
+                p {
+                    // max-width: 250px;
+                }
+                
+            }
+
+            &-right {
+                @include text(var(--body12-fs), pns, var(--body12-lh), $white-cl, uppercase);
+                text-align: left;
+                padding: 20px 40px 10px 40px;
+                p {
+                    // max-width: 250px;
+                }
+            }
+        }
+        
+    @include xs {
+        &__info {
+            flex-direction: column;
+            &-left {
+                text-align: center;
+                padding: 20px 0 10px 0;
+            }
+
+            &-right {
+                text-align: center;
+                order: 1;
+            }
+        }
+    }
+    }
+}

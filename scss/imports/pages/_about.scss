@@ -1,0 +1,75 @@
+//ccs about
+
+footer.about-page--footer {
+    &::before {
+        display: none;
+    }
+
+}
+
+.about-page {
+    .about {
+        background-image: url(../img/about-bg.jpg);
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 100px 0 180px 0;
+        position: relative;
+
+        @include xs {
+            padding-top: 50px;
+        }
+        &__title {
+            h2 {
+                @include text(3.6rem, db, 5.8rem, $yellow-cl, uppercase);
+                letter-spacing: 0.6em;
+                max-width: 280px;
+            }
+        }
+
+        &__content {
+            p {
+                @include text(1.8rem, pnl, 4rem, #e4e4e4, none);
+                letter-spacing: -0.025em;
+                padding: 30px 0 30px 0;
+            }
+            @include xs {
+                padding-left: 20px;
+            }
+        }
+
+        &__book {
+            display: flex;
+            position: absolute;
+            p {
+                max-width: 100px;
+                margin-left: 10px;
+
+                @include text(1.4rem, pnl, 2rem, $white-cl, none);
+            }
+            a {
+                span:first-child {
+                    @include text(2.4rem, pne, var(--body12-lh), $black-cl, uppercase);
+                    letter-spacing: -0.025em;
+                }
+                span:last-child {
+                    @include text(2.7rem, pne, var(--body12-lh), $black-cl, uppercase);
+                    letter-spacing: -0.025em;       
+                }
+                border: 1px solid $yellow-cl;
+                border-radius: 12px;
+                height: 100px;
+                width: 100px;
+                background: $yellow-cl;
+                text-align: center;
+                @include mid(true);
+                flex-direction: column;
+            }
+
+            @include xs {
+                padding-left: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,91 @@
+//css project deatil
+
+.project {
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 40px;
+        padding-bottom: 25px;
+
+        &-title {
+            @include text(1.4rem, pnl, 2.2rem, $black-cl, uppercase);
+            letter-spacing: 0.2em;
+        }
+        &-right {
+            display: flex;
+            .screen {
+                @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, none);
+                padding-right: 100px;
+                img {
+                    padding-left: 5px;
+                    @include transform(translateY(3px));
+                }
+            }
+            .backall {
+                @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, none);
+                img {
+                    padding-left: 5px;
+                    @include transform(translateY(3px));
+                }
+            }
+        }
+
+    
+
+    }
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+
+
+        justify-content: space-between;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        &-desc {
+            h3 {
+                @include text(1.4rem, pnb, 2.2rem, $black-cl, uppercase);
+                letter-spacing: 0.2em;
+            }
+            p {
+                @include text(1.1rem, Arial, none, $black-cl, none);
+                max-width: 400px;
+            }
+        }
+
+        &-client {
+            h3 {
+                @include text(1.4rem, pnb, 2.2rem, $black-cl, uppercase);
+                letter-spacing: 0.2em;
+            }
+            p {
+                @include text(1.1rem, Arial, none, $black-cl, none);
+            }
+        }
+
+        &-about {
+            h3 {
+                @include text(1.4rem, pnb, 2.2rem, $black-cl, uppercase);
+                letter-spacing: 0.2em;
+            }
+            p {
+                @include text(1.1rem, Arial, none, $black-cl, uppercase);
+            }
+        }
+
+        @include xs {
+            flex-direction: column;
+
+            &-desc {
+                padding-bottom: 25px;
+            }
+            &-client {
+                padding-bottom: 25px;
+            }
+            &-about {
+                padding-bottom: 25px;
+            }
+    
+        }
+    }
+}

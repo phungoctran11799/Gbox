@@ -1,0 +1,239 @@
+// css footer
+
+footer {
+    --height-footer: 700px;
+    --subHeight: 190px;
+    height: var(--height-footer);
+    padding-top: 60px;
+    position: relative;
+    &::after {
+        content: '';
+        height: calc(var(--height-footer) - var(--subHeight));
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: $yellow-cl;
+        z-index: -1;
+    }
+
+    &::before {
+        content: '';
+        width: 1010px;
+        height: 0.5px;
+        background: $black-cl;
+        // display: inline-block;
+        position: absolute;
+        left: 50%;
+        @include transform(translateX(-50%));
+        top: 0;
+        // bottom: 0px;
+    } 
+
+    @include sm {
+        &::before {
+            width: 600px;
+        }
+    }
+
+    @include xs {
+        --height-footer: 500px;
+        --subHeight: 310px;
+        &::before {
+            width: 373px;
+        }
+    }
+
+}
+
+.footer {
+    position: relative; 
+    &__top {
+        .container {
+            display: flex;
+        }
+        &-left {
+            flex: 1;
+            .mail {
+                p {
+                    @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, uppercase);
+                    letter-spacing: 0.2em;
+                }
+            }
+            .tel {
+                p {
+                    @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, uppercase);
+                    letter-spacing: 0.2em;
+                }
+            }
+        }
+        &-right {
+            flex: 1;
+            p {
+                @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, uppercase);
+                letter-spacing: 0.2em;
+            }
+
+        }
+
+    }
+
+    &__mid {
+        padding-top: 30px;
+        .container {
+            display: flex;
+        }
+        &-left {
+            flex: 1;
+            p {
+                @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, uppercase);
+                letter-spacing: 0.2em;
+            }
+        }
+        &-right {
+            flex: 1;
+            @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, none);
+
+            .form__contact {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+                position: relative;
+
+                &-one {
+                    @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, none);
+                    input {    
+                        border: none;
+                        outline: none;
+                        background: transparent;
+                        border-bottom: 1px solid #000;
+                        resize: none;
+                        height: 25px;
+                        width: 100%;
+                        font-family: pns;
+                        padding-top: 10px;
+                        padding-left: 5px;
+                        
+                    }
+                }
+
+                &-two {
+                    // padding-left: 30px;
+                    @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, none);
+                    input {
+                        border: none;
+                        outline: none;
+                        background: transparent;
+                        background-color: $yellow-cl;
+                        border-bottom: 1px solid #000;
+                        resize: none;
+                        height: 25px;
+                        width: 100%;
+                        font-family: pns;
+                        padding-top: 10px;
+                        padding-left: 5px;
+                        z-index: 1000;
+                    }
+
+                    textarea {
+                        border: none;
+                        outline: none;
+                        background: transparent;
+                        border-bottom: 1px solid #000;
+                        resize: none;
+                        height: 25px;
+                        width: 100%;
+                        font-family: pns;
+                        padding-top: 10px;
+                        padding-left: 5px;
+                        overflow: hidden;
+                    }
+
+                    .submit {
+                        display: flex;
+                        justify-content: flex-end;
+                        margin-top: 20px;
+                        button {
+                            position: absolute;
+                            border: none;
+                            cursor: pointer;
+                            background: #000;
+                            padding: 5px 8px;
+                            @include text(1rem, pns, none, $white-cl, uppercase);
+                        }
+                    }
+                }
+ 
+            }
+
+        }
+    }
+
+    &__bottom {
+        position: relative;
+        margin-top: 200px;
+       &-backtotop {
+           a {
+               img {
+                    @include mid();
+               }
+           }
+       } 
+       p {
+            @include mid();
+            top: 30px;
+            @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, uppercase);
+            min-width: 250px;
+       }
+    }
+
+    //mobile
+    @include xs {
+        --subHeight: 250px;
+        &__top {  
+            .container {
+                flex-wrap: wrap;
+            }
+            &-right {
+                display: none;
+            }
+            &-left {
+                .mail {
+                    p {
+                        text-align: center;
+                    }
+                }
+                .tel {
+                    p {
+                        text-align: center;
+                    }
+
+                }
+            }
+        }
+
+        &__mid {
+            .container {
+                
+            }
+            &-right {
+                display: none;
+            }
+            &-left {
+                p {
+                    text-align: center;
+                }
+            }
+        }
+
+        &__bottom {
+            position: relative;
+            &-backtotop {
+                margin-top: -100px;
+            }
+            p {
+                font-size: 1rem;
+                @include mid (true);
+            }
+        }
+    }
+}

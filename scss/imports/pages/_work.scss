@@ -1,0 +1,71 @@
+//work
+
+.product {  
+    &__more {
+        display: flex;
+        // justify-content: flex-end;
+        // align-items: center;
+        position: relative;
+        margin-top: 80px;
+        margin-bottom: 110px;
+        .book {
+            display: flex;
+            position: absolute;
+            right: 0;
+            top: 0;
+            p {
+                max-width: 100px;
+                text-align: right;
+                margin-right: 10px;
+                @include text(1.4rem, pnl, 2rem, $black-cl, none);
+            }
+            a {
+                span:first-child {
+                    @include text(2.4rem, pne, var(--body12-lh), $yellow-cl, uppercase);
+                    letter-spacing: -0.025em;
+                }
+                span:last-child {
+                    @include text(2.7rem, pne, var(--body12-lh), $yellow-cl, uppercase);
+                    letter-spacing: -0.025em;       
+                }
+                border: 1px solid $gray-cl;
+                border-radius: 12px;
+                height: 100px;
+                width: 100px;
+                background: $gray-cl;
+                text-align: center;
+                @include mid(true);
+                flex-direction: column;
+            }
+        }
+    }
+
+    @include sm {
+        &__more {
+            margin-top: 70px;
+            margin-bottom: 60px;
+        }
+    }
+    @include xs {
+        &__more {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 40px;
+            margin-bottom: 60px;
+     
+            .book {
+                p {
+                    text-align: center;
+                }
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                @include mid();
+                
+                
+            }
+        }
+    }
+}

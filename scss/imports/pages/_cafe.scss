@@ -1,0 +1,215 @@
+//css cafe
+
+.cafe-page {
+    .sologan {
+        background-image: url(../img/cafe-bg.jpg);
+        position: relative;
+        padding: 60px;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include xs {
+            height: 500px;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &__title {
+            h3 {
+                color: $yellow-cl;
+            }
+        }
+        &__brandname {
+            p {
+                color: $yellow-cl;
+                letter-spacing: 0.4em;
+                &::after {
+                    display: none;
+                }
+            }
+        }
+        &__content {
+            p {
+                color: $white-cl;
+                
+                &::after {
+                    content: '';
+                    width: 320px;
+                    height: 1px;
+                    background: $yellow-cl;
+                    display: inline-block;
+                    position: absolute;
+                    left: 50%;
+                    @include transform(translateX(-50%));
+                    bottom: 210px;
+
+                    @include xs {
+                        bottom: 100px;
+                    }
+                }
+            }
+        }
+
+        &__gl {
+            h4 {
+                @include text(1.4rem, pnl, 22.2rem, #eaeae7, uppercase);
+                letter-spacing: 0.2em;
+                text-align: center;
+            }
+        }
+
+    }
+
+    .gallery {
+        background: #19191a;
+        overflow: hidden;
+
+        &__thumb-wrap {
+
+            .flickity-viewport {
+                height: 400px !important;
+            }
+            .gallery__thumb {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 200px 200px;
+                gap: 20px;
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                height: 100%;
+
+                // &.active {
+                //     display: block;
+                // }
+                    
+                &-item {
+                    position: relative;
+                    overflow: hidden;
+                    &:first-child {
+                        grid-row: 1/3;
+                    }
+                    &:nth-child(2){
+                        grid-column: 2/4;
+                    }
+    
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        overflow: hidden;
+                        cursor: pointer;
+    
+                        position: absolute;
+                        min-height: 100%;
+                        min-width: 100%;
+                        top: 50%;
+                        left: 50%;
+    
+                        @include transform(translate(-50%, -50%));
+                        @include transition($t);
+    
+                        object-fit: cover;
+                    }
+
+
+    
+    
+                    &:before {
+                        content: '';
+                        // width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: rgba($color: #000000, $alpha: 0);
+                        z-index: 10;
+                        @include transition($t);
+                    }
+    
+                    &:hover {
+                        img {
+                            @include transform(translate(-50%,-50%) scale(1.04));
+                            @include transition($t);
+                        }
+                        &:before {
+                            background: rgba($color: #000000, $alpha: 0.4);
+                            @include transition($t);
+                        }        
+                    }
+                }
+            }
+        }
+
+        &__btn {
+            display: flex;
+            justify-content: flex-end;
+            padding: 30px 0 70px 0;
+            position: relative;
+            
+            &-nextPrev {
+                display: flex;
+                position: absolute;
+                right: 0;
+                .btn {
+                    @include text(var(--body12-fs), pns, var(--body12-lh), $yellow-cl, none);
+                    padding: 0 10px 0 10px;
+                    cursor: pointer;
+                }
+                .btn-prev {
+                    &::after {
+                        content: '';
+                        height: 12px;
+                        width: 1px;
+                        background-color: #ffde00;
+                        position: absolute;
+                        right: 45px;
+                        top: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .content {
+        text-align: center;
+        padding: 50px 0 50px 0;
+        h3 {
+            @include text(var(--body14-fs), pnl, 2.2rem, $black-cl, uppercase);
+        }
+        p {
+            padding-top: 20px;
+            margin: auto;
+            max-width: 495px;
+            @include text(var(--body12-fs), Arial, var(--body12-lh), $black-cl, none);
+        }
+    }
+
+    @include xs {
+        .gallery {
+            .gallery__thumb-wrap {
+                .flickity-viewport {
+                    height: 500px !important;
+                }
+                .gallery__thumb {
+                    padding: 0 5px 0 5px;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 150px 150px 150px;
+                    height: 100%;
+                    &-item {
+                        min-height: 100%;
+                        min-height: 100%;
+                        grid-column: unset;
+                        grid-row: unset;
+                        &:last-child{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

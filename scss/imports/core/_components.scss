@@ -1,0 +1,288 @@
+// css img, button, heading, title, input, elements, components...
+img {
+    max-width: 100%;
+    height: auto;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    &.--center {
+        margin: 0 auto;
+        display: block;
+    }
+}
+a {
+    text-decoration: none;
+}
+
+// colors (tuỳ chỉnh)
+.--white-cl {
+    color: $white-cl;
+}
+.--black-cl {
+    color: $black-cl;
+}
+// .--blue-cl {
+//     color: $blue-cl;
+// }
+
+// css article (nội dung chi tiết bài viết)
+article {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        // font-family: ib; // font bold
+        display: block;
+    }
+    h1 {
+        font-size: var(--h1-fs);
+        line-height: var(--h1-lh);
+        margin: 0 0 0.67rem 0;
+    }
+    h2 {
+        font-size: var(--h2-fs);
+        line-height: var(--h2-lh);
+        margin: 0 0 0.75rem 0;
+    }
+    h3 {
+        font-size: var(--h3-fs);
+        line-height: var(--h3-lh);
+        margin: 0 0 0.83rem 0;
+    }
+    h4 {
+        font-size: var(--h4-fs);
+        line-height: var(--h4-lh);
+        margin: 0 0 1.12rem 0;
+    }
+    h5 {
+        font-size: var(--h5-fs);
+        line-height: var(--h5-lh);
+        margin: 0 0 1.5rem 0;
+    }
+    h6 {
+        font-size: 0.67rem;
+        margin: 0 0 1.67rem 0;
+    }
+
+    p {
+        margin: 0 0 1.12rem 0;
+    }
+    strong {
+        // font-family: ib; // font bold
+    }
+    ol,
+    ul {
+        list-style: initial;
+        padding-left: 18px;
+    }
+    img {
+        display: inline-block;
+        height: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        margin: 25px auto;
+    }
+    .video {
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        position: relative;
+        margin: 25px auto;
+        iframe,
+        video {
+            position: absolute;
+            @include size(100%);
+            top: 0;
+            left: 0;
+        }
+    }
+    @include xs {
+        img {
+            margin: 20px auto;
+        }
+    }
+}
+
+.heading {
+    font-family: ib;
+    &.--h1 {
+        font-size: var(--h1-fs);
+        line-height: var(--h1-lh);
+    }
+    &.--h2 {
+        font-size: var(--h2-fs);
+        line-height: var(--h2-lh);
+    }
+}
+
+
+.product{
+    &__list{
+        --column: 3;
+        --gap: 20px;
+
+        display: flex;
+        flex-wrap: wrap; /* Xuống hàng */
+        
+
+
+        margin-left: calc(var(--gap) * -1);
+
+        &-item{
+            width: calc(100% / var(--column) - (var(--gap)));
+            margin-left: var(--gap);
+            
+            .thumb{
+                // width: 100%;
+                padding-bottom: 59.38%; /* Tỷ lệ của chiều cao so với chiều rộng */
+                position: relative;
+                // height: 200px;
+                cursor: pointer;
+                overflow: hidden;
+                img{
+                    position: absolute;
+                    min-height: 100%;
+                    min-width: 100%;
+                    top: 50%;
+                    left: 50%;
+
+                    @include transform(translate(-50%, -50%));
+                    @include transition($t);
+
+                    // width: 100%;
+                    // height: 100%;
+                    object-fit: cover;
+                }
+
+                &:before {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    // position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: rgba($color: #000000, $alpha: 0);
+                    z-index: 10;
+                    @include transition(0.3s);
+                }
+
+                &:hover {
+                    img {
+                        @include transform(translate(-50%,-50%) scale(1.08));
+                        @include transition($t);
+                    }
+                    &:before {
+                        background: rgba($color: #000000, $alpha: 0.4);
+                        @include transition($t);
+                    }        
+                }
+
+
+            }
+            .text {
+                text-align: center;
+                padding: 30px 0 30px 0;
+                h4 {
+                    position: relative;
+                    margin-bottom: 10px;
+                    @include text(var(--body12-fs), pne, var(--body12-lh), $black-cl, uppercase);
+                    &::after {
+                        content: '';
+                        width: 12px;
+                        height: 4px;
+                        background: $yellow-cl;
+                        display: inline-block;
+                        position: absolute;
+                        left: 50%;
+                        @include transform(translateX(-50%));
+                        bottom: 0px;
+                        
+                    }
+                }
+                p {
+                    @include text(var(--body12-fs), pns, 2rem, $black-cl, none);
+                }
+            }
+        }
+
+        @include sm{
+            --column: 1;
+            --gap: 0px;
+        }
+    }
+
+    &__more {
+        position: relative;
+        margin-bottom: 30px;
+        @include mid(true);
+        flex-direction: column;
+        a {
+            @include text(var(--body12-fs), pns, var(--body12-lh), $black-cl, uppercase);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }           
+        // img {
+        //     left: 50%;
+        //     @include transform(translateX(-20%))
+        // }
+    }
+}
+
+//button book
+
+// .btn {
+//     display: flex;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     p {
+//         max-width: 80px;
+//         text-align: right;
+//         margin-right: 10px;
+//     }
+//     a {
+//         span:first-child {
+//         @include text(2.4rem, pne, var(--body12-lh), $yellow-cl, uppercase);
+//         letter-spacing: -0.025em;
+//     }
+//         span:last-child {
+//         @include text(2.7rem, pne, var(--body12-lh), $yellow-cl, uppercase);
+//         letter-spacing: -0.025em;       
+//         }
+//         border: 1px solid $gray-cl;
+//         border-radius: 12px;
+//         height: 100px;
+//         width: 100px;
+//         background: $gray-cl;
+//         text-align: center;
+//         @include mid(true);
+//         flex-direction: column;
+//     }
+// }
+
+// .loading{
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background-color: $yellow-cl;
+//     z-index: 10000;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     transform: translateY(0%);
+
+//     &.hidden{
+//         transform: translateY(-100%);
+//     }
+
+
+   
+// }

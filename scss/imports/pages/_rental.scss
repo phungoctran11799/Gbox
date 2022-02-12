@@ -1,0 +1,420 @@
+//css rental
+
+.rental-page {
+    .rental {
+        .container {
+            padding-left: 0;
+        }
+        .rental__page {
+            display: flex;
+            @include xs {
+                flex-direction: column;
+            }
+
+            &-sidebar {
+                background: #525355;
+                max-height: 640px;
+                min-width: 260px;
+
+                @include xs {
+                    background: none;
+                    .content {
+                        display: flex;
+                    }
+  
+                }
+                @include md {
+                    min-height: 230px;
+                }
+
+                .content {
+                    padding: 70px 0 0 20px;
+                    &__number {
+                        width: 100px;
+                        height: 100px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #ffde00;
+
+                        h4 {
+                            @include text(var(--body12-fs), pns, 2rem, $black-cl, uppercase);
+                        }
+
+                        h2 {
+                            @include text(6.2rem, db, 6.3rem, $black-cl, uppercase);
+                        }
+                    }
+
+                    &__desc {
+                        h2 {
+                            padding: 20px 0 20px 0;
+                            @include text(3.2rem, pne, var(--body12-lh), $white-cl, none);
+                            letter-spacing: -0.025em;
+                        }
+
+                        h3 {
+                            @include text(var(--body12-fs), pnl, var(--body12-lh), $white-cl, uppercase);
+                            letter-spacing: 0.2em;
+                        }
+    
+                        p {
+                            @include text(var(--body14-fs), pnl, 2rem, $white-cl, none);
+                        }
+                    }
+
+                    @include xs {
+                        padding-top: 40px;
+                        &__number {
+
+                        }
+                        &__desc {
+                            padding-left: 20px;
+                            h2 {
+                                padding-top: 0;
+                                color: $black-cl;
+                            }
+                            h3 {
+                                color: #2e2c2c;
+                            }
+                            p {
+                                color: #2e2c2c;
+                            }
+                            p:last-child {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            &-form  {
+                padding: 70px 0 70px 50px;
+
+                @include xs {
+                    padding-left: 20px;
+                    padding-top: 0;
+                    padding-bottom: 60px;
+                }
+
+                // @include md {
+                //     padding-left: 52px;
+                // }
+                .company {
+                    h2 {
+                        @include text(2.8rem, pne, var(--body12-lh), #39382f, none);
+                    }
+
+                    .detail {
+                        display: flex;
+                        padding: 40px 0 40px 0;
+                        &__left{
+                            flex: 1;
+                            padding-right: 80px;
+
+                            @include xs {
+                                padding-right: 0;
+                            }
+
+                            @include md {
+                                flex: none;
+                            }
+
+                            label {
+                                @include text(1.2rem, pns, 6.6rem, $black-cl, none);
+                            }
+
+                            input {    
+                                border: none;
+                                outline: none;
+                                background: transparent;
+                                border-bottom: 1px solid #000;
+                                resize: none;
+                                height: 25px;
+                                width: 100%;
+                                font-family: pns;
+                                padding-top: 10px;
+                                padding-left: 5px;
+
+                            }
+                        }
+
+                        &__right {
+                            flex: 1;
+
+                            @include md {
+                                flex: none;
+                            }
+
+                            label {
+                                @include text(1.2rem, pns, 6.6rem, $black-cl, none);
+                            }
+                            
+                            input {    
+                                border: none;
+                                outline: none;
+                                background: transparent;
+                                border-bottom: 1px solid #000;
+                                resize: none;
+                                height: 25px;
+                                width: 100%;
+                                font-family: pns;
+                                padding-top: 10px;
+                                padding-left: 5px;
+
+                            }
+
+                            textarea {
+                                // border: none;
+                                outline: none;
+                                background: transparent;
+                                border-bottom: 1px solid #000;
+                                resize: none;
+                                // height: 25px;
+                                width: 100%;
+                                font-family: pns;
+                                padding-top: 10px;
+                                padding-left: 5px;
+                                overflow: hidden;
+                            }
+                        }
+
+                        @include xs {
+                            flex-direction: column
+                        }
+                    }
+
+                  
+                }
+
+                .booking-detail {
+                    h2 {
+                        @include text(2.8rem, pne, var(--body12-lh), #39382f, none);
+                    }
+
+                    .studionumber {
+                        p {
+                            padding: 20px 0 10px 0;
+                        }
+
+                        &__id {
+                            display: flex;
+
+                            &-item {
+                                // padding-right: 10px;
+
+                                height: 40px;
+                                width: 40px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                border: 1px solid #111;
+                                margin: 10px 10px 10px 0;
+                                background: #111;
+                                cursor: pointer;
+                                // transition: all 0.4s ease-in;
+
+                                &.--active {
+                                    background: $yellow-cl;
+                                    span {
+                                        color: $black-cl;
+                                    }    
+                                }
+
+                                span {
+                                    color: #b4b4b4;
+                                    @include text(2.4rem, db, 10.3rem, #b4b4b4, none);
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .request {
+                    display: flex;
+
+                    @include xs {
+                        flex-direction: column;
+                    }
+
+                    &__left {
+                        padding-right: 124px;
+
+                        @include xs {
+                            padding-right: 0;
+                        }
+                    }
+
+                    &__right {
+                        p {
+                            font-style: italic;
+                            font-size: 1.2rem;
+                        }
+                    }
+                    label {
+                        @include text(1.2rem, pns, 6.6rem, $black-cl, none);
+                    }
+
+                    textarea {
+                        // border: none;
+                        outline: none;
+                        background: transparent;
+                        border-bottom: 1px solid #000;
+                        resize: none;
+                        // width: 315px;
+                        width: 100%;
+                        font-family: pns;
+                        padding-top: 10px;
+                        padding-left: 5px;
+                        overflow: hidden;
+                    }
+                }
+
+                .booking { 
+                    label {
+                        @include text(1.2rem, pns, 6.6rem, $black-cl, none);
+                    }
+
+                    &__date {
+                        display: flex;
+
+                        @include xs {
+                            flex-direction: column;
+                        }
+
+                       
+                        &-left {
+                            padding-right: 83px;
+
+                            @include xs {
+                                padding-right: 0;
+                            }
+
+                            @include md {
+                                padding-right: 40px;
+                            }
+
+                            input {    
+                                height: 40px;
+                                width: 315px;
+                                font-style: italic;
+
+                                @include xxs {
+                                    width: 280px;
+                                }
+
+                                @include md {
+                                    width: 300px;
+                                }
+                            }
+
+                        }
+
+                        &-right {
+                            @include xs {
+                                padding-top: 30px;
+                            }
+
+                            input {    
+                                height: 40px;
+                                width: 315px;
+                                font-style: italic;
+
+                                @include xxs {
+                                    width: 280px;
+                                }
+
+                                @include md {
+                                    width: 300px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .project {
+                    label {
+                        padding-right: 30px;
+                        @include text(1.2rem, pns, 6.6rem, $black-cl, none);
+                    }
+                    input {    
+                        outline: none;
+                        resize: none;
+                        height: 40px;
+                        // width: 713px;
+                        width: 100%;
+                        font-family: pns;
+                        padding-top: 10px;
+                        padding-left: 5px; 
+
+                        // @include xs {
+                        //     width: 343px;
+                        // }
+                    }
+                }
+
+                .where {
+                    label {
+                        padding-right: 30px;
+                        @include text(1.2rem, pns, 6.6rem, $black-cl, none);
+                    }
+                    input {    
+                        outline: none;
+                        resize: none;
+                        height: 40px;
+                        // width: 713px;
+                        width: 100%;
+                        font-family: pns;
+                        padding-top: 10px;
+                        padding-left: 5px; 
+
+                        // @include xs {
+                        //     width: 343px;
+                        // }
+                    }
+                }
+
+                .submit {
+                    position: relative;
+                    padding: 70px 0 70px 0;
+                    &__book {
+                        display: flex;
+                        position: absolute;
+                        // right: 0;
+                        // top: 0;
+                        p {
+                            max-width: 230px;
+                            text-align: left;
+                            margin-left: 10px;
+                            @include text(1.4rem, pnl, 2rem, $black-cl, none);
+
+                            @include xs {
+                                max-width: 140px;
+                            }
+                        }
+                        a {
+                            span{
+                                @include text(2.4rem, pne, var(--body12-lh), $yellow-cl, uppercase);
+                                letter-spacing: -0.025em;
+                            }
+
+                            border: 1px solid $gray-cl;
+                            border-radius: 12px;
+                            height: 100px;
+                            width: 100px;
+                            background: $gray-cl;
+                            text-align: center;
+                            @include mid(true);
+                            flex-direction: column;
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+    }
+}
