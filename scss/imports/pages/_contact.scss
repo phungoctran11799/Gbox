@@ -1,7 +1,8 @@
 // css contact
 footer.contact-page--footer {
     --subHeight: 0px;
-    height: var(--height-footer);
+    // height: var(--height-footer);
+    height: 560px;
     &::before {
         display: none;
     }
